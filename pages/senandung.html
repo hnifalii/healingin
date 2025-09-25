@@ -9,22 +9,62 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
-        --font-sans: "Lato", sans-serif;
+        --font-quicksand: "Quicksand", sans-serif;
+        --font-nunito: "Nunito", sans-serif;
+
+        --font-sans: var(--font-quicksand);
 
         --color-accent1: #a7c7e7;
         --color-accent2: #98fb98;
       }
-    </style>
+    </style>  
 
-    <!-- fonts -->
+    <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <script src="js/script.js"></script>
+    <!-- Header -->
+    <header
+      class="sticky top-0 flex w-full px-24 py-6 justify-between items-center font-nunito bg-white"
+    >
+      <a href="">
+        <img src="../assets/logo.svg" alt="healingin logo" class="block h-12 p-1" />
+      </a>
+
+      <!-- Nav links -->
+      <nav
+        class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500"
+      >
+        <div class="flex w-full gap-8">
+          <a id="homeNav" href="/">Beranda</a>
+          <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
+          <a id="quizNav" href="/">Refleksi</a>
+          <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
+        </div>
+
+        <!-- <div
+          class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        >
+          <img src="assets/chatbot.svg" alt="chatbot" class="block size-7" />
+        </div> -->
+      </nav>
+
+      <!-- CTA Login -->
+      <button
+        type="button"
+        id="navLoginBtn"
+        class="block px-4 py-2 bg-gradient-to-r from-accent1 to-accent2 rounded-full text-gray-500"
+        onclick="toggleLoginPopup()"
+      >
+        Masuk
+        <!-- <a href="/profile"><img src="assets/user.svg" /></a> -->
+      </button>
+    </header>
+    <script src="../js/script.js"></script>
   </body>
 </html>

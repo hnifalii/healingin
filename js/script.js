@@ -1,5 +1,6 @@
 // ini javascript
 
+// UNIVERSAL LOGIC
 let isLoggedIn = false;
 
 function toggleLoginStatus() {
@@ -19,7 +20,7 @@ function toggleLoginStatus() {
   }
 }
 
-// login and register popup handler
+// POPUP HANDLERS
 // get document elements
 const loginPopup = document.getElementById("loginPopup");
 const registerPopup = document.getElementById("registerPopup");
@@ -69,13 +70,37 @@ const loginPassword = document.getElementById("password2");
 const loginPasswordBtn = document.getElementById("passwordBtn2");
 
 function togglePassword(input) {
-
-  
-    if (input.type == "password") {
-      input.type = "text";
-    } else {
-      input.type = "password";
-    }
-
+  if (input.type == "password") {
+    input.type = "text";
+  } else {
+    input.type = "password";
+  }
 }
 
+// HEADER (NAV) LOGIC
+// underline active page
+document.addEventListener("DOMContentLoaded", () => {
+  let currentPath = window.location.pathname;
+  if (currentPath === "/" || currentPath === "/index.html") {
+    currentPath = "/";
+  }
+  console.log(currentPath);
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach((link) => {
+    let linkPath = link.getAttribute("href");
+
+    // set "/index.html" to "/"
+    if (linkPath === "/" || linkPath === "/index.html") {
+      linkPath = "/";
+    }
+
+    if (linkPath === currentPath) {
+      link.classList.add("text-black", "font-semibold");
+    } else {
+      link.classList.remove("text-black", "font-semibold");
+    }
+  });
+});
+
+// manipulate home page content
