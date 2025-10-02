@@ -9,7 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
-        --font-sans: "Open Sans", sans-serif;
+        --font-quicksand: "Quicksand", sans-serif;
+        --font-nunito: "Nunito", sans-serif;
+
+        --font-sans: var(--font-quicksand);
 
         --color-accent1: #a7c7e7;
         --color-accent2: #98fb98;
@@ -18,85 +21,151 @@
 
     <link rel="stylesheet" href="global.css" />
 
-    <!-- fonts -->
+    <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="font-sans">
-    <!-- Login toggle (for dev and preview purposes) -->
-    <button id="devLoginBtn" onclick="toggleLoginStatus()" class="absolute bottom-5 right-5 px-3 py-1 bg-black text-white rounded-lg">Masuk</button>
+  <body class="bg-white font-sans">
+    <!-- dev button for login toggle (preview purposes) -->
+    <button
+      id="devLoginBtn"
+      onclick="toggleLoginStatus()"
+      class="fixed bottom-5 right-5 z-50 px-3 py-1 bg-black text-white rounded-lg"
+    >
+      Masuk
+    </button>
 
     <!-- Register popup -->
-    <div id="registerPopup" class="absolute hidden w-full h-full z-50 justify-center bg-[#0000006b] backdrop-blur-[2px]">
-      <div class="flex flex-col px-8 py-6 m-auto text-center bg-white rounded-xl">
+    <div
+      id="registerPopup"
+      class="fixed hidden w-full h-full z-50 justify-center bg-[#0000006b] backdrop-blur-[2px] font-nunito"
+    >
+      <div
+        class="flex flex-col px-8 py-6 m-auto text-center bg-white rounded-xl"
+      >
         <div class="flex w-full gap-4 justify-between items-center">
           <img src="assets/logo.svg" class="size-10" />
 
-          <h3>healingin</h3>
+          <h3 class="font-semibold">healingin</h3>
 
-          <button class="text-2xl" onclick="toggleRegisterPopup()">X</button>
+          <button class="w-6" onclick="toggleRegisterPopup()">
+            <img src="/assets/close.svg" alt="close" class="" />
+          </button>
           <!-- <img src="" /> -->
         </div>
 
         <div class="flex flex-col px-8 py-6 gap-1">
           <h3 class="text-2xl">Bergabung bersama kami.</h3>
-          <p class="text-sm font-light">Dapatkan manfaat nyata sekarang juga!</p>
+          <p class="text-sm font-light">
+            Dapatkan manfaat nyata sekarang juga!
+          </p>
         </div>
 
         <form class="flex flex-col w-full gap-1 text-left">
           <div class="">
             <label for="email1" class="text-sm">Email</label>
-            <input type="email" id="email1" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
+            <input
+              type="email"
+              id="email1"
+              class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            />
           </div>
 
           <div class="">
             <label for="name1" class="text-sm">Nama</label>
-            <input type="text" id="name1" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
+            <input
+              type="text"
+              id="name1"
+              class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            />
           </div>
 
           <div class="">
             <label for="username1" class="text-sm">Username</label>
-            <input type="text" id="username1" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
+            <input
+              type="text"
+              id="username1"
+              class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            />
           </div>
 
           <div class="relative">
             <label for="password1" class="text-sm">Password</label>
-            <input type="password" id="password1" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
-            <button type="button" onclick="togglePassword(registerPassword)" id="passwordBtn1" class="absolute inset-y-0 end-0 flex items-end p-2">
+            <input
+              type="password"
+              id="password1"
+              class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            />
+            <button
+              type="button"
+              onclick="togglePassword(registerPassword)"
+              id="passwordBtn1"
+              class="absolute inset-y-0 end-0 flex items-end p-2"
+            >
               <img src="assets/eye-outline.svg" class="" />
             </button>
           </div>
 
           <div class="relative">
-            <label for="confirmPassword" class="text-sm">Konfirmasi Password</label>
-            <input type="password" id="confirmPassword" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
-            <button type="button" onclick="togglePassword(confirmPassword)" id="confirmPasswordBtn" class="absolute inset-y-0 end-0 flex items-end p-2">
+            <label for="confirmPassword" class="text-sm"
+              >Konfirmasi Password</label
+            >
+            <input
+              type="password"
+              id="confirmPassword"
+              class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            />
+            <button
+              type="button"
+              onclick="togglePassword(confirmPassword)"
+              id="confirmPasswordBtn"
+              class="absolute inset-y-0 end-0 flex items-end p-2"
+            >
               <img src="assets/eye-outline.svg" class="" />
             </button>
           </div>
 
-          <button type="" class="w-max mx-auto my-7 px-14 py-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50">Daftar</button>
+          <button
+            type="button"
+            id="submitRegisterBtn"
+            class="w-max mx-auto my-7 px-14 py-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            onclick="toggleLoginStatus(); toggleRegisterPopup()"
+          >
+            Daftar
+          </button>
         </form>
 
         <p class="text-sm text-gray-500">
           Sudah memiliki akun?
-          <span class="text-accent1 hover:underline hover:cursor-pointer" onclick="toggleLoginPopup()">Masuk.</span>
+          <span
+            class="text-accent1 hover:underline hover:cursor-pointer"
+            onclick="toggleLoginPopup()"
+            >Masuk.</span
+          >
         </p>
       </div>
     </div>
 
     <!-- Login popup -->
-    <div id="loginPopup" class="absolute hidden w-full h-full z-50 justify-center bg-[#0000006b] backdrop-blur-[2px]">
-      <div class="flex flex-col px-8 py-6 m-auto text-center bg-white rounded-xl">
+    <div
+      id="loginPopup"
+      class="fixed hidden w-full h-full z-50 justify-center bg-[#0000006b] backdrop-blur-[2px] font-nunito"
+    >
+      <div
+        class="flex flex-col px-8 py-6 m-auto text-center bg-white rounded-xl"
+      >
         <div class="flex w-full gap-4 justify-between items-center">
           <img src="assets/logo.svg" class="size-10" />
 
-          <h3>healingin</h3>
+          <h3 class="font-semibold">healingin</h3>
 
-          <button class="text-2xl" onclick="toggleLoginPopup()">X</button>
-          <!-- <img src="" /> -->
+          <button class="w-6" onclick="toggleLoginPopup()">
+            <img src="/assets/close.svg" alt="close" class="" />
+          </button>
         </div>
 
         <div class="flex flex-col px-8 py-6 gap-1">
@@ -107,57 +176,204 @@
         <form class="flex flex-col w-full gap-1 text-left">
           <div class="">
             <label for="username2" class="text-sm">Email atau Username</label>
-            <input type="text" id="username2" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
+            <input
+              type="text"
+              id="username2"
+              class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            />
           </div>
 
           <div class="">
             <label for="password2" class="text-sm">Password</label>
             <div class="relative">
-              <input type="password" id="password2" class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50" />
-              <button type="button" onclick="togglePassword(loginPassword)" id="passwordBtn2" class="absolute inset-y-0 end-0 flex items-center p-2">
+              <input
+                type="password"
+                id="password2"
+                class="w-full p-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+              />
+              <button
+                type="button"
+                onclick="togglePassword(loginPassword)"
+                id="passwordBtn2"
+                class="absolute inset-y-0 end-0 flex items-center p-2"
+              >
                 <img src="assets/eye-outline.svg" class="" />
               </button>
             </div>
-            <p class="mt-1 text-right text-sm text-accent1 hover:underline hover:cursor-pointer">Lupa password?</p>
+            <p
+              class="mt-1 text-right text-sm text-accent1 hover:underline hover:cursor-pointer"
+            >
+              Lupa password?
+            </p>
           </div>
 
-          <button type="button" class="w-max mx-auto my-7 px-14 py-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50">Masuk</button>
+          <button
+            type="button"
+            id="submitLoginBtn"
+            class="w-max mx-auto my-7 px-14 py-2 text-sm border-2 border-accent1 rounded-lg bg-gray-50"
+            onclick="toggleLoginStatus(); toggleLoginPopup()"
+          >
+            Masuk
+          </button>
         </form>
 
         <p class="text-sm text-gray-500">
           Belum memiliki akun?
-          <span class="text-accent1 hover:text-opacity-10 hover:cursor-pointer" onclick="toggleRegisterPopup()">Daftar.</span>
+          <span
+            class="text-accent1 hover:text-opacity-10 hover:cursor-pointer"
+            onclick="toggleRegisterPopup()"
+            >Daftar.</span
+          >
         </p>
       </div>
     </div>
 
     <!-- Header -->
-    <header class="sticky top-0 flex w-full px-24 py-8 justify-between items-center">
-      <img src="assets/logo.svg" alt="healingin logo" class="block size-12" />
-      <nav class="flex w-max pl-8 pr-1 py-1 gap-8 items-center rounded-full border border-accent1 text-sm text-gray-500">
-        <div class="flex w-full gap-8">
-          <a href="/" class="text-black">Beranda</a>
-          <a href="/">Senandung</a>
-          <a href="/">Komunitas</a>
-          <a href="/">Refleksi</a>
-          <a href="/">Konseling</a>
-        </div>
+    <header
+      class="sticky top-0 z-40 flex w-full px-24 py-6 justify-between items-center font-nunito bg-transparent backdrop-blur-md shadow-sm"
+    >
+      <a href="">
+        <img
+          src="assets/logo.svg"
+          alt="healingin logo"
+          class="block h-12 p-1"
+        />
+      </a>
 
-        <div class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2">
+      <!-- Nav links -->
+      <nav
+        class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500"
+      >
+        <!-- <div class="flex w-full gap-8"> -->
+        <a id="homeNav" href="/">Beranda</a>
+        <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
+        <a id="quizNav" href="/pages/refleksi.html">Refleksi</a>
+        <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
+        <!-- </div> -->
+
+        <!-- <div
+          class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        >
           <img src="assets/chatbot.svg" alt="chatbot" class="block size-7" />
-        </div>
+        </div> -->
       </nav>
-      <button type="button" id="navLoginBtn" class="block p-2 bg-gradient-to-r from-accent1 to-accent2 rounded-full" onclick="toggleLoginPopup()">
-        Masuk
-        <!-- <a href="/profile"><img src="assets/user.svg" /></a> -->
+
+      <!-- Unlogged state: CTA Login -->
+      <button
+        type="button"
+        id="navLoginBtn"
+        class="block px-4 py-2 bg-accent1 rounded-full"
+        onclick="toggleLoginPopup()"
+      >
+        <p class="text-black">Masuk</p>
       </button>
+
+      <!-- Logged in state: profile and notification -->
+      <div class="hidden gap-2 items-center" id="navProfileBtn">
+        <a href="/pages/profile.html">
+          <button class="flex p-1 pl-2 rounded-full items-center gap-2">
+            <p class="font-nunito font-medium">Nama Pengguna</p>
+            <img
+              src="/assets/user.svg"
+              alt="profile"
+              class="size-8 p-1 rounded-full bg-accent1"
+            />
+          </button>
+        </a>
+        <button class="h-full p-2 rounded-full">
+          <img src="/assets/bell.svg" alt="notification" />
+        </button>
+      </div>
     </header>
 
-    <main id="mainContent" class="w-full px-20">
+    <!-- Hero bg -->
+    <img src="/assets/hero-bg.png" alt="" class="w-full absolute top-0 -z-10" />
+
+    <!-- main -->
+    <main id="landingPage" class="relative w-full">
+      <!-- Hero section -->
+      <div id="hero" class="flex flex-row justify-between px-48 py-24">
+        <!-- Hero text -->
+        <div class="relative flex flex-col w-1/2 pr-10 gap-4">
+          <!-- gradient -->
+          <span
+            class="absolute top-0 left-auto right-auto size-80 opacity-70 bg-accent2 rounded-full blur-[140px]"
+          ></span>
+
+          <h1 class="text-6xl font-bold leading-tight">
+            Ada Rumah Bagi Lelah, Ada Pelukan Bagi Luka
+          </h1>
+          <p class="text-xl font-nunito">
+            Healingin mendampingimu menuju keseimbangan mental. Semua rasa
+            diterima, setiap cerita punya ruang, dan setiap jiwa dapat
+            dipulihkan.
+          </p>
+
+          <!-- CTA button group -->
+          <div class="flex mt-2 gap-4">
+            <a href="#cerita">
+              <button
+                class="flex p-3 pr-5 gap-2 items-center font-semibold border-2 border-accent2 rounded-full"
+              >
+                <img
+                  src="/assets/logo.svg"
+                  alt=""
+                  class="size-6 bg-accent2 rounded-full"
+                />
+                <p>Pelajari lebih lanjut</p>
+              </button>
+            </a>
+            <button
+              class="flex p-3 pl-5 gap-2 items-center font-semibold bg-gradient-to-br from-accent1 to-accent2 rounded-full"
+              onclick="toggleRegisterPopup()"
+            >
+              <p>Mulai Healing</p>
+              <img
+                src="/assets/healing-icon.svg"
+                alt=""
+                class="size-6 rounded-full"
+              />
+            </button>
+          </div>
+
+          <!-- Users count -->
+          <div class="flex gap-4 items-center">
+            <div class="flex flex-col text-center font-nunito">
+              <h1 class="font-bold text-4xl">200K+</h1>
+              <h4 class="font-medium text-xl">Pengguna aktif</h4>
+            </div>
+
+            <!-- Img group -->
+            <!-- maaf kak pake png soalnya kejar waktu hehe -->
+            <img
+              src="/assets/active-users.png"
+              alt="active users"
+              class="h-10"
+            />
+          </div>
+        </div>
+
+        <!-- Hero img -->
+        <div class="z-20 flex w-1/2 justify-center items-center">
+          <img src="/assets/hero-img.png" alt="" />
+        </div>
+      </div>
+
+      <!-- Sponsor section -->
+      <div id="sponsor" class="flex w-full justify-between">
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+      </div>
+
       <!-- cerita section -->
-      <div id="cerita" class="flex flex-col gap">
+      <div id="cerita" class="flex flex-col px-48 py-24">
         <h1 class="text-4xl font-semibold w-70">Tak Ada Cerita yang Sia-sia</h1>
-        <p class="mb-5 mt-2">Saat kata berubah menjadi langkah, di sanalah pulih bermula.</p>
+        <p class="mb-5 mt-2">
+          Saat kata berubah menjadi langkah, di sanalah pulih bermula.
+        </p>
         <div class="flex flex-row justify-between gap-10">
           <div class="flex flex-col gap-3 w-fit p-6 bg-gray-100 rounded-xl">
             <h3 class="text-2xl font-medium">Rekaman Moodmu</h3>
@@ -167,17 +383,28 @@
             <!-- emoticon -->
           </div>
           <div class="flex flex-col w-fit">
-            <div class="flex flex-col gap-5 bg-gradient-to-r from-white via-accent1 to-white p-6 rounded-t-2xl">
+            <div
+              class="flex flex-col gap-5 bg-gradient-to-r from-white via-accent1 to-white p-6 rounded-t-2xl"
+            >
               <div class="flex flex-row text-2xl font-medium gap-3">
-                <img src="/assets/tabler_writing-filled.svg" alt="jurnal" class="w-7" />
+                <img
+                  src="/assets/tabler_writing-filled.svg"
+                  alt="jurnal"
+                  class="w-7"
+                />
                 <h3>Jurnal Privasimu</h3>
               </div>
               <div class="flex flex-row p-1 bg-white ml-5 gap-3 rounded-xl">
                 <img src="/assets/logo.svg" alt="logo" class="w-5" />
-                <p>Kamu lelah ya hari ini? coba tuang semua yang berat ke dalam jurnal ini.</p>
+                <p>
+                  Kamu lelah ya hari ini? coba tuang semua yang berat ke dalam
+                  jurnal ini.
+                </p>
               </div>
             </div>
-            <div class="flex flex-row justify-between pt-16 p-6 bg-gray-100 rounded-b-2xl">
+            <div
+              class="flex flex-row justify-between pt-16 p-6 bg-gray-100 rounded-b-2xl"
+            >
               <div class="flex flex-row gap-2 align-middle">
                 <img src="/assets/plus.svg" alt="plus" class="w-5" />
                 <p class="opacity-70">Yang bikin aku lelah hari ini....</p>
@@ -189,34 +416,63 @@
       </div>
 
       <!-- Konsultasi Section -->
-      <div id="konsultasi" class="flex w-full h-fit flex-col my-20">
+      <div id="konsultasi" class="flex w-full h-fit flex-col px-48 py-24">
         <h1 class="text-4xl font-semibold">Konsultasi</h1>
-        <p class="mt-2">Ceritakan keluh kesahmu kepada para ahli yang berkualitas!</p>
+        <p class="mt-2">
+          Ceritakan keluh kesahmu kepada para ahli yang berkualitas!
+        </p>
         <div class="flex flex-row justify-between mt-5 gap-8">
           <!-- item -->
-          <div class="flex flex-row gap-5 shadow-md rounded-lg p-4 w-full h-fit">
-            <img src="/assets/doctor-male.jpg" alt="img_doctor" class="h-64 rounded-lg" />
+          <div
+            class="flex flex-row gap-5 shadow-md rounded-lg p-4 w-full h-fit"
+          >
+            <img
+              src="/assets/doctor-male.jpg"
+              alt="img_doctor"
+              class="h-64 rounded-lg"
+            />
             <div class="flex flex-col h-fit my-auto gap-3">
               <h1 class="font-semibold text-lg">dr. Dono, S.Psi</h1>
-              <p class="text-xs">Dokter yang selalu ceria dan suka bercerita kepada pasien. Tidak galak dan menjadi favorit bagi masyarakat.</p>
+              <p class="text-xs">
+                Dokter yang selalu ceria dan suka bercerita kepada pasien. Tidak
+                galak dan menjadi favorit bagi masyarakat.
+              </p>
               <p class="text-sm">⭐ 4.8 (145 Ulasan)</p>
             </div>
           </div>
 
-          <div class="flex flex-row gap-5 shadow-md rounded-lg p-4 w-full h-fit">
-            <img src="/assets/doctor-male.jpg" alt="img_doctor" class="h-64 rounded-lg" />
+          <div
+            class="flex flex-row gap-5 shadow-md rounded-lg p-4 w-full h-fit"
+          >
+            <img
+              src="/assets/doctor-male.jpg"
+              alt="img_doctor"
+              class="h-64 rounded-lg"
+            />
             <div class="flex flex-col h-fit my-auto gap-3">
               <h1 class="font-semibold text-lg">dr. Dono, S.Psi</h1>
-              <p class="text-xs">Dokter yang selalu ceria dan suka bercerita kepada pasien. Tidak galak dan menjadi favorit bagi masyarakat.</p>
+              <p class="text-xs">
+                Dokter yang selalu ceria dan suka bercerita kepada pasien. Tidak
+                galak dan menjadi favorit bagi masyarakat.
+              </p>
               <p class="text-sm">⭐ 4.8 (145 Ulasan)</p>
             </div>
           </div>
 
-          <div class="flex flex-row gap-5 shadow-md rounded-lg p-4 w-full h-fit">
-            <img src="/assets/doctor-male.jpg" alt="img_doctor" class="h-64 rounded-lg" />
+          <div
+            class="flex flex-row gap-5 shadow-md rounded-lg p-4 w-full h-fit"
+          >
+            <img
+              src="/assets/doctor-male.jpg"
+              alt="img_doctor"
+              class="h-64 rounded-lg"
+            />
             <div class="flex flex-col h-fit my-auto gap-3">
               <h1 class="font-semibold text-lg">dr. Dono, S.Psi</h1>
-              <p class="text-xs">Dokter yang selalu ceria dan suka bercerita kepada pasien. Tidak galak dan menjadi favorit bagi masyarakat.</p>
+              <p class="text-xs">
+                Dokter yang selalu ceria dan suka bercerita kepada pasien. Tidak
+                galak dan menjadi favorit bagi masyarakat.
+              </p>
               <p class="text-sm">⭐ 4.8 (145 Ulasan)</p>
             </div>
           </div>
@@ -224,18 +480,32 @@
       </div>
 
       <!-- testimoni section -->
-      <div id="testimoni" class="flex w-full h-fit flex-col my-20">
+      <div id="testimoni" class="flex w-full h-fit flex-col px-48 my-20">
         <h1 class="text-4xl font-semibold">Testimoni</h1>
-        <p class="mt-2">Ini kata orang-orang setelah menggunakan website ini!</p>
+        <p class="mt-2">
+          Ini kata orang-orang setelah menggunakan website ini!
+        </p>
         <div class="flex flex-col gap-6 mt-6 mx-28">
           <!-- first row -->
           <div class="flex flex-row justify-between gap-8">
             <!-- item -->
             <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
-              <img src="/assets/bi_quote.svg" alt="img_quote" class="h-7 self-start" />
-              <p class="text-center">Sebelum nya, saya memiliki masalah kejiwaan karena terlalu sering memikirkan pekerjaan. Namun setelah bergabung dengan Healingin, saya merasa lebih bisa mengontrol emosi saya.</p>
+              <img
+                src="/assets/bi_quote.svg"
+                alt="img_quote"
+                class="h-7 self-start"
+              />
+              <p class="text-center">
+                Sebelum nya, saya memiliki masalah kejiwaan karena terlalu
+                sering memikirkan pekerjaan. Namun setelah bergabung dengan
+                Healingin, saya merasa lebih bisa mengontrol emosi saya.
+              </p>
               <div class="flex flex-row gap-4 align-middle">
-                <img src="/assets/doctor-male.jpg" alt="img_profile" class="size-11 rounded-full" />
+                <img
+                  src="/assets/doctor-male.jpg"
+                  alt="img_profile"
+                  class="size-11 rounded-full"
+                />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
                   <h5>Senior Software Engineer</h5>
@@ -244,10 +514,22 @@
             </div>
 
             <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
-              <img src="/assets/bi_quote.svg" alt="img_quote" class="h-7 self-start" />
-              <p class="text-center">Sebelum nya, saya memiliki masalah kejiwaan karena terlalu sering memikirkan pekerjaan. Namun setelah bergabung dengan Healingin, saya merasa lebih bisa mengontrol emosi saya.</p>
+              <img
+                src="/assets/bi_quote.svg"
+                alt="img_quote"
+                class="h-7 self-start"
+              />
+              <p class="text-center">
+                Sebelum nya, saya memiliki masalah kejiwaan karena terlalu
+                sering memikirkan pekerjaan. Namun setelah bergabung dengan
+                Healingin, saya merasa lebih bisa mengontrol emosi saya.
+              </p>
               <div class="flex flex-row gap-4 align-middle">
-                <img src="/assets/doctor-male.jpg" alt="img_profile" class="size-11 rounded-full" />
+                <img
+                  src="/assets/doctor-male.jpg"
+                  alt="img_profile"
+                  class="size-11 rounded-full"
+                />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
                   <h5>Senior Software Engineer</h5>
@@ -260,10 +542,22 @@
           <div class="flex flex-row justify-between gap-8">
             <!-- item -->
             <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
-              <img src="/assets/bi_quote.svg" alt="img_quote" class="h-7 self-start" />
-              <p class="text-center">Sebelum nya, saya memiliki masalah kejiwaan karena terlalu sering memikirkan pekerjaan. Namun setelah bergabung dengan Healingin, saya merasa lebih bisa mengontrol emosi saya.</p>
+              <img
+                src="/assets/bi_quote.svg"
+                alt="img_quote"
+                class="h-7 self-start"
+              />
+              <p class="text-center">
+                Sebelum nya, saya memiliki masalah kejiwaan karena terlalu
+                sering memikirkan pekerjaan. Namun setelah bergabung dengan
+                Healingin, saya merasa lebih bisa mengontrol emosi saya.
+              </p>
               <div class="flex flex-row gap-4 align-middle">
-                <img src="/assets/doctor-male.jpg" alt="img_profile" class="size-11 rounded-full" />
+                <img
+                  src="/assets/doctor-male.jpg"
+                  alt="img_profile"
+                  class="size-11 rounded-full"
+                />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
                   <h5>Senior Software Engineer</h5>
@@ -272,10 +566,22 @@
             </div>
 
             <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
-              <img src="/assets/bi_quote.svg" alt="img_quote" class="h-7 self-start" />
-              <p class="text-center">Sebelum nya, saya memiliki masalah kejiwaan karena terlalu sering memikirkan pekerjaan. Namun setelah bergabung dengan Healingin, saya merasa lebih bisa mengontrol emosi saya.</p>
+              <img
+                src="/assets/bi_quote.svg"
+                alt="img_quote"
+                class="h-7 self-start"
+              />
+              <p class="text-center">
+                Sebelum nya, saya memiliki masalah kejiwaan karena terlalu
+                sering memikirkan pekerjaan. Namun setelah bergabung dengan
+                Healingin, saya merasa lebih bisa mengontrol emosi saya.
+              </p>
               <div class="flex flex-row gap-4 align-middle">
-                <img src="/assets/doctor-male.jpg" alt="img_profile" class="size-11 rounded-full" />
+                <img
+                  src="/assets/doctor-male.jpg"
+                  alt="img_profile"
+                  class="size-11 rounded-full"
+                />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
                   <h5>Senior Software Engineer</h5>
@@ -287,21 +593,32 @@
       </div>
 
       <!-- Join Us Section -->
-      <div id="join" class="flex w-full h-fit flex-col my-20">
+      <div id="join" class="flex w-full h-fit flex-col px-48 my-20">
         <h1 class="text-4xl font-semibold">Ayo Bergabung Bersama Kami</h1>
         <div class="flex flex-row justify-between mt-14 text-xl">
           <div>
-            <p>Bergabunglah bersama kami! Bersama-sama membentuk komunitas yang solid!</p>
+            <p>
+              Bergabunglah bersama kami! Bersama-sama membentuk komunitas yang
+              solid!
+            </p>
             <img src="/assets/care.png" alt="" />
           </div>
           <div class="flex flex-col gap-8">
             <img src="/assets/together.png" alt="" />
             <p>Bertemu dengan orang-orang yang akan selalu mendukungmu!</p>
-            <a href="/" class="py-3 px-7 text-lg bg-gradient-to-r from-accent1 to-accent2 w-fit rounded-lg hover:opacity-80 transition duration-150">Bergabung Bersama Kami!</a>
+            <a href="/">
+              <button
+                class="py-3 px-7 text-lg bg-gradient-to-r from-accent1 to-accent2 w-fit rounded-lg hover:opacity-80 transition duration-150"
+              >
+                Bergabung Bersama Kami!
+              </button>
+            </a>
           </div>
         </div>
       </div>
     </main>
+
+    <main id="homePage" class="hidden w-full px-48"></main>
 
     <!-- footer -->
     <footer class="flex flex-col gap-20 bg-black px-16 py-14 mt-40">
@@ -342,7 +659,9 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center pt-8 border-t-[0.4px] border-opacity-70 text-white opacity-50">
+      <div
+        class="flex justify-center pt-8 border-t-[0.4px] border-opacity-70 text-white opacity-50"
+      >
         <p>Made with 💖 by Snapper Team</p>
       </div>
     </footer>
