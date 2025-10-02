@@ -9,60 +9,234 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
-        --font-sans: "Lato", sans-serif;
+        --font-quicksand: "Quicksand", sans-serif;
+        --font-nunito: "Nunito", sans-serif;
+
+        --font-sans: var(--font-quicksand);
 
         --color-accent1: #a7c7e7;
         --color-accent2: #98fb98;
       }
     </style>
 
-    <!-- fonts -->
+    <link rel="stylesheet" href="../global.css" />
+
+    <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="flex flex-row">
-    <aside class="w-fit flex flex-col p-8 h-screen gap-8 font-semibold bg-[#F9F9F9]">
-      <img src="/assets/icon.svg" alt="" />
+  <body>
+    <div class="flex flex-row h-screen">
+      <!-- sidebar -->
+      <aside
+        class="sticky left-0 top-0 w-1/4 flex flex-col px-5 justify-between font-semibold bg-[#F9F9F9]"
+      >
+        <div class="flex flex-col gap-8 py-8">
+          <img src="/assets/icon.svg" alt="logo" class="h-12" />
 
-      <div class="flex flex-col gap-2">
-        <div class="flex flex-row gap-3">
-          <img src="/assets/lucide_edit.svg" alt="" />
-          <a href="">Pesan Baru</a>
-        </div>
-        <div class="flex flex-row gap-3">
-          <img src="/assets/icon-park-outline_search.svg" alt="" />
-          <a href="">Pencarian Pesan</a>
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-3">
-        <h1 class="opacity-70">Riwayat Pesan</h1>
-        <div class="flex flex-col">
-          <div class="flex flex-row w-full justify-between items-center">
-            <div class="flex flex-row gap-2">
-              <img src="/assets/bxs_tired.svg" alt="" />
-              <p>Curhat</p>
+          <!-- sidebar actions -->
+          <div class="flex flex-col w-full gap-4">
+            <div class="flex flex-row gap-3">
+              <img src="/assets/lucide_edit.svg" alt="" />
+              <a href="">Pesan Baru</a>
             </div>
-            <img src="/assets/majesticons_more-menu.svg" alt="" />
+            <div class="flex flex-row w-full gap-3">
+              <img src="/assets/icon-park-outline_search.svg" alt="" />
+              <a href="">Pencarian Pesan</a>
+            </div>
+          </div>
+
+          <!-- items -->
+          <div class="flex flex-col gap-3">
+            <h1 class="opacity-70">Riwayat Pesan</h1>
+            <!-- chat history -->
+            <div class="flex flex-col gap-2">
+              <div
+                class="flex flex-row w-full px-2 justify-between items-center bg-accent2 rounded-xl"
+              >
+                <div class="flex flex-row gap-2">
+                  <img src="/assets/bxs_tired.svg" alt="" />
+                  <p class="line-clamp-1">Curhat</p>
+                </div>
+                <img src="/assets/majesticons_more-menu.svg" alt="" />
+              </div>
+
+              <div
+                class="flex flex-row w-full px-2 justify-between items-center rounded-xl hover:bg-green-200"
+              >
+                <div class="flex flex-row gap-2">
+                  <img src="/assets/bxs_tired.svg" alt="" />
+                  <p class="line-clamp-1">
+                    Saran mengatasi masalah kurang percaya diri
+                  </p>
+                </div>
+                <img src="/assets/majesticons_more-menu.svg" alt="" />
+              </div>
+
+              <div
+                class="flex flex-row w-full px-2 justify-between items-center rounded-xl hover:bg-green-200"
+              >
+                <div class="flex flex-row gap-2">
+                  <img src="/assets/bxs_tired.svg" alt="" />
+                  <p class="line-clamp-1">Apa itu Healingin?</p>
+                </div>
+                <img src="/assets/majesticons_more-menu.svg" alt="" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </aside>
 
-    <main class="w-full p-20">
-      <!-- input -->
-      <div class="w-full p-4 flex flex-row outline-1 rounded-3xl justify-between">
-        <div class="flex flex-row gap-3 w-full">
-          <img src="/assets/plus.svg" alt="" />
-          <input type="text" placeholder="Ceritakan Sesuatu..." class="w-full focus:outline-none">
+        <!-- profile -->
+        <div class="sticky bottom-0 w-full flex py-4 gap-3 items-center">
+          <img
+            src="/assets/user.svg"
+            alt="profile"
+            class="size-12 bg-slate-500 p-2 rounded-full"
+          />
+          <p>Budi Kutoro</p>
         </div>
-        <img src="/assets/mic.svg" alt="" class="p-2 bg-slate-300 rounded-full">
-      </div>
-    </main>
+      </aside>
+
+      <main class="flex flex-col w-full">
+        <!-- top bar -->
+        <div
+          class="sticky top-0 w-full px-6 py-4 justify-center text-center bg-[#F9F9F9]"
+        >
+          <h4 class="font-medium">Curhat</h4>
+        </div>
+
+        <!-- chats container -->
+        <div
+          class="flex flex-col px-20 pt-4 pb-56 gap-2 font-nunito overflow-y-scroll"
+        >
+          <!-- chat item -->
+          <div class="flex flex-col w-fit max-w-2/3 gap-1 self-end text-end">
+            <h4 class="text-gray-600">Budi Kutoro</h4>
+            <p class="px-6 py-3 bg-accent1 rounded-full text-start">
+              Aku lagi capek banget, rasanya semua orang nggak ngertiin aku
+            </p>
+          </div>
+
+          <!-- bot chat item -->
+          <div class="flex flex-row w-full items-center">
+            <img
+              src="/assets/logo.svg"
+              alt="AI Bot"
+              class="size-10 p-2 rounded-full border-2 border-accent2"
+            />
+            <p class="px-6 py-3 max-w-2/3">
+              Capek itu wajar banget kok. Mau cerita lebih jauh biar aku bisa
+              nemenin?
+            </p>
+          </div>
+
+          <!-- chat item -->
+          <div class="flex flex-col w-fit max-w-2/3 gap-1 self-end text-end">
+            <h4 class="text-gray-600">Budi Kutoro</h4>
+            <p class="px-6 py-3 bg-accent1 rounded-full text-start">
+              Aku sering kepikiran hal-hal kecil sampai susah tidur...
+            </p>
+          </div>
+
+          <!-- bot chat item -->
+          <div class="flex flex-row w-full items-center">
+            <img
+              src="/assets/logo.svg"
+              alt="AI Bot"
+              class="size-10 p-2 rounded-full border-2 border-accent2"
+            />
+            <p class="px-6 py-3 max-w-2/3">
+              Hmm, aku ngerti banget rasanya. Tapi kamu harus inget deh, kalau
+              kamu nggak sendirian ngerasain ini. Banyak orang juga ngerasa hal
+              yang sama. Kalau kamu mau, aku bisa kasih beberapa trik sederhana
+              biar pikiranmu lebih ringan sebelum tidur.
+            </p>
+          </div>
+
+          <!-- chat item -->
+          <div class="flex flex-col w-fit max-w-2/3 gap-1 self-end text-end">
+            <h4 class="text-gray-600">Budi Kutoro</h4>
+            <p class="px-6 py-3 bg-accent1 rounded-full text-start">
+              Boleh, tolong bantu aku biar lebih gampang tidur
+            </p>
+          </div>
+
+          <!-- bot chat item -->
+          <div class="flex flex-row w-full max-w-2/3 items-center">
+            <img
+              src="/assets/logo.svg"
+              alt="AI Bot"
+              class="size-10 p-2 rounded-full border-2 border-accent2"
+            />
+            <p class="px-6 py-3">
+              Coba rasain napasmu… tarik dalam, buang perlahan. Biarkan tenang
+              masuk, dan biarkan resah berjalan bersamaan dengan hembusan. Lalu,
+              aku rekomendasikan kamu mencoba fitur Healingin yang ini:
+            </p>
+          </div>
+          <div class="pl-16">
+            <a
+              href="/pages/refleksi.html"
+              class="flex w-fit pl-4 pr-2 py-2 gap-1 items-center bg-gradient-to-br from-accent2 to-accent1 rounded-full"
+            >
+              Refleksi: Isi kuis self-check dan dengarkan musik penenang
+              <img
+                src="/assets/arrow-down.svg"
+                alt=""
+                class="size-5 -rotate-135"
+              />
+            </a>
+          </div>
+
+          <!-- chat item -->
+          <div class="flex flex-col w-fit max-w-2/3 gap-1 self-end text-end">
+            <h4 class="text-gray-600">Budi Kutoro</h4>
+            <p class="px-6 py-3 bg-accent1 rounded-full text-start">
+              Terimakasih banyak, aku akan mencobanya
+            </p>
+          </div>
+
+          <!-- bot chat item -->
+          <div class="flex flex-row w-full max-w-2/3 items-center">
+            <img
+              src="/assets/logo.svg"
+              alt="AI Bot"
+              class="size-10 p-2 rounded-full border-2 border-accent2"
+            />
+            <p class="px-6 py-3">
+              Sama-sama! Senang bisa membantu, semoga masalahmu bisa cepat
+              teratasi, ya!
+            </p>
+          </div>
+        </div>
+
+        <!-- input group -->
+        <div class="sticky bottom-4 px-20 bg-transparent">
+          <div
+            class="flex flex-row w-full p-3 bg-white rounded-full border border-gray-300 gap-3"
+          >
+            <button type="button" class="size-10 p-2 bg-accent1 rounded-full">
+              <img src="/assets/plus.svg" alt="attach file" />
+            </button>
+            <input
+              type="text"
+              placeholder="Ceritakan sesuatu..."
+              class="w-full focus:outline-none"
+            />
+            <button
+              type="button"
+              class="size-10 p-2.5 justify-center items-center bg-accent1 rounded-full"
+            >
+              <img src="/assets/mic.svg" alt="mic" class="w-full" />
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
