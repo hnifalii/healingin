@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Healingin - Profil</title>
+    <title>Healingin - Chatbot</title>
 
     <!-- tailwindcss -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -19,12 +19,48 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
   </head>
-  <body>
+  <body class="flex flex-row">
+    <aside class="w-fit flex flex-col p-8 h-screen gap-8 font-semibold bg-[#F9F9F9]">
+      <img src="/assets/icon.svg" alt="" />
+
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-row gap-3">
+          <img src="/assets/lucide_edit.svg" alt="" />
+          <a href="">Pesan Baru</a>
+        </div>
+        <div class="flex flex-row gap-3">
+          <img src="/assets/icon-park-outline_search.svg" alt="" />
+          <a href="">Pencarian Pesan</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <h1 class="opacity-70">Riwayat Pesan</h1>
+        <div class="flex flex-col">
+          <div class="flex flex-row w-full justify-between items-center">
+            <div class="flex flex-row gap-2">
+              <img src="/assets/bxs_tired.svg" alt="" />
+              <p>Curhat</p>
+            </div>
+            <img src="/assets/majesticons_more-menu.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="w-full p-20">
+      <!-- input -->
+      <div class="w-full p-4 flex flex-row outline-1 rounded-3xl justify-between">
+        <div class="flex flex-row gap-3 w-full">
+          <img src="/assets/plus.svg" alt="" />
+          <input type="text" placeholder="Ceritakan Sesuatu..." class="w-full focus:outline-none">
+        </div>
+        <img src="/assets/mic.svg" alt="" class="p-2 bg-slate-300 rounded-full">
+      </div>
+    </main>
+
     <script src="js/script.js"></script>
   </body>
 </html>
