@@ -9,22 +9,131 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
-        --font-sans: "Lato", sans-serif;
+        --font-quicksand: "Quicksand", sans-serif;
+        --font-nunito: "Nunito", sans-serif;
+
+        --font-sans: var(--font-quicksand);
 
         --color-accent1: #a7c7e7;
         --color-accent2: #98fb98;
       }
     </style>
 
-    <!-- fonts -->
+    <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <header class="sticky top-0 flex w-full px-24 py-6 justify-between items-center font-nunito bg-transparent backdrop-blur-[3px] shadow-sm">
+      <a href="">
+        <img src="../assets/logo.svg" alt="healingin logo" class="block h-12 p-1" />
+      </a>
+
+      <!-- Nav links -->
+      <nav class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500">
+        <div class="flex w-full gap-8">
+          <a id="homeNav" href="/" class="hover:underline">Beranda</a>
+          <a id="communityNav" href="/pages/komunitas.html" class="text-black hover:underline">Komunitas</a>
+          <a id="quizNav" href="/pages/refleksi.html" class="hover:underline">Refleksi</a>
+          <a id="consultNav" href="/pages/konsultasi.html" class="hover:underline">Konseling</a>
+          <a id="journalNav" href="/pages/jurnal.html" class="hover:underline">Jurnal</a>
+        </div>
+
+        <!-- <div
+          class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        >
+          <img src="assets/chatbot.svg" alt="chatbot" class="block size-7" />
+        </div> -->
+      </nav>
+
+      <!-- Logged in state: profile and notification -->
+      <div class="flex gap-2 items-center" id="navProfileBtn">
+        <a href="/pages/profile.html">
+          <button class="flex p-1 pl-2 rounded-full items-center gap-2">
+            <p class="font-nunito font-medium">Nama Pengguna</p>
+            <img src="/assets/user.svg" alt="profile" class="size-8 p-1 rounded-full bg-black" />
+          </button>
+        </a>
+        <button class="h-full p-2 rounded-full">
+          <img src="/assets/bell.svg" alt="notification" />
+        </button>
+      </div>
+    </header>
+
+    <main class="p-20 flex flex-col gap-4">
+      <h1 class="font-semibold text-3xl">Lihat Postingan Komunitas</h1>
+      <div class="grid grid-cols-3 justify-between">
+        <!-- items -->
+        <div class="flex flex-col gap-4 shadow-md rounded-xl p-5 m-5 hover:scale-105 transition duration-200">
+          <div class="flex flex-row gap-2">
+            <img src="/assets/drtirta.jpg" alt="" class="h-10 rounded-full" />
+            <div class="flex flex-col">
+              <h5>N****a A***a</h5>
+              <p class="text-xs opacity-70">1 jam yang lalu</p>
+            </div>
+          </div>
+          <p>Saya baru ke psikolog tadi siang</p>
+          <img src="/assets/holdmyhand.png" alt="" class="rounded-xl">
+          <div class="flex flex-row gap-3">
+            <img src="/assets/hugeicons_mail-love-01.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+            <img src="/assets/iconamoon_comment-light.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-4 shadow-md rounded-xl p-5 m-5 hover:scale-105 transition duration-200">
+          <div class="flex flex-row gap-2">
+            <img src="/assets/drtirta.jpg" alt="" class="h-10 rounded-full" />
+            <div class="flex flex-col">
+              <h5>N****a A***a</h5>
+              <p class="text-xs opacity-70">1 jam yang lalu</p>
+            </div>
+          </div>
+          <p>Saya baru ke psikolog tadi siang</p>
+          <img src="/assets/holdmyhand.png" alt="" class="rounded-xl">
+          <div class="flex flex-row gap-3">
+            <img src="/assets/hugeicons_mail-love-01.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+            <img src="/assets/iconamoon_comment-light.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 shadow-md rounded-xl p-5 m-5 hover:scale-105 transition duration-200">
+          <div class="flex flex-row gap-2">
+            <img src="/assets/drtirta.jpg" alt="" class="h-10 rounded-full" />
+            <div class="flex flex-col">
+              <h5>N****a A***a</h5>
+              <p class="text-xs opacity-70">1 jam yang lalu</p>
+            </div>
+          </div>
+          <p>Saya baru ke psikolog tadi siang</p>
+          <img src="/assets/holdmyhand.png" alt="" class="rounded-xl">
+          <div class="flex flex-row gap-3">
+            <img src="/assets/hugeicons_mail-love-01.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+            <img src="/assets/iconamoon_comment-light.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-4 shadow-md rounded-xl p-5 m-5 hover:scale-105 transition duration-200">
+          <div class="flex flex-row gap-2">
+            <img src="/assets/drtirta.jpg" alt="" class="h-10 rounded-full" />
+            <div class="flex flex-col">
+              <h5>N****a A***a</h5>
+              <p class="text-xs opacity-70">1 jam yang lalu</p>
+            </div>
+          </div>
+          <p>Saya baru ke psikolog tadi siang</p>
+          <img src="/assets/holdmyhand.png" alt="" class="rounded-xl">
+          <div class="flex flex-row gap-3">
+            <img src="/assets/hugeicons_mail-love-01.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+            <img src="/assets/iconamoon_comment-light.svg" alt="" class="hover:opacity-70 transition duration-200 cursor-pointer">
+          </div>
+        </div>
+      </div>
+    </main>
+
     <script src="js/script.js"></script>
   </body>
 </html>
