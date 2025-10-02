@@ -7,18 +7,22 @@ function toggleLoginStatus() {
   isLoggedIn = !isLoggedIn;
 
   const devBtn = document.getElementById("devLoginBtn");
-  const navBtn = document.getElementById("navLoginBtn");
+  const navLoginBtn = document.getElementById("navLoginBtn");
+  const navProfileBtn = document.getElementById("navProfileBtn");
 
   if (!isLoggedIn) {
     devBtn.innerText = "Masuk";
-    navBtn.innerText = "Masuk";
-    navBtn.onclick = () => toggleLoginPopup();
+    navLoginBtn.classList.replace("hidden", "block");
+    navProfileBtn.classList.replace("flex", "hidden");
   } else {
     devBtn.innerText = "Keluar";
-    navBtn.innerHTML = `<a href="/profile"><img src="assets/user.svg" /></a>`;
-    navBtn.onclick = "";
+    navLoginBtn.classList.replace("block", "hidden");
+    navProfileBtn.classList.replace("hidden", "flex");
   }
 }
+
+const registerBtn = document.getElementById("submitRegisterBtn");
+const loginBtn = document.getElementById("submitLoginBtn");
 
 // POPUP HANDLERS
 // get document elements
@@ -40,8 +44,10 @@ function toggleLoginPopup() {
 
   if (isOpen) {
     loginPopup.classList.replace("flex", "hidden"); // close if it's opened
+    document.body.style.overflowY = "scroll"; // scroll off
   } else {
     showPopup(loginPopup); // show only this popup
+    document.body.style.overflowY = "hidden"; // scroll off
   }
 
   console.log("Login popup:", !loginPopup.classList.contains("hidden"));
@@ -52,8 +58,10 @@ function toggleRegisterPopup() {
 
   if (isOpen) {
     registerPopup.classList.replace("flex", "hidden"); // close if it's opened
+    document.body.style.overflowY = "scroll"; // scroll off
   } else {
     showPopup(registerPopup); // show only this popup
+    document.body.style.overflow = "hidden"; // scroll off
   }
 
   console.log("Register popup:", !registerPopup.classList.contains("hidden"));
@@ -77,7 +85,7 @@ function togglePassword(input) {
   }
 }
 
-// HEADER (NAV) LOGIC
+// NAVIGATION LOGIC
 // underline active page
 document.addEventListener("DOMContentLoaded", () => {
   let currentPath = window.location.pathname;
@@ -101,6 +109,25 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.remove("text-black", "font-semibold");
     }
   });
+
+  // // devBtn for login state switch
+  // const devBtn = `
+  // <button
+  //   id="devLoginBtn"
+  //   onclick="toggleLoginStatus()"
+  //   class="fixed bottom-5 right-5 px-3 py-1 bg-black text-white rounded-lg"
+  // >
+  //   Masuk
+  // </button>`;
+
+  // // insert the btn to every page
+  // document.body.insertAdjacentHTML("afterbegin", devBtn)
 });
 
 // manipulate home page content
+// const landingPage = ; 
+// const homePage = ; 
+// if (isLoggedIn == true) {
+
+// }
+

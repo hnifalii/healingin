@@ -30,10 +30,14 @@
   <body>
     <!-- Header -->
     <header
-      class="sticky top-0 flex w-full px-24 py-6 justify-between items-center font-nunito bg-white"
+      class="sticky top-0 flex w-full px-24 py-6 justify-between items-center font-nunito bg-transparent backdrop-blur-[3px] shadow-sm"
     >
       <a href="">
-        <img src="../assets/logo.svg" alt="healingin logo" class="block h-12 p-1" />
+        <img
+          src="../assets/logo.svg"
+          alt="healingin logo"
+          class="block h-12 p-1"
+        />
       </a>
 
       <!-- Nav links -->
@@ -43,7 +47,7 @@
         <div class="flex w-full gap-8">
           <a id="homeNav" href="/">Beranda</a>
           <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
-          <a id="quizNav" href="/">Refleksi</a>
+          <a id="quizNav" href="/pages/refleksi.html">Refleksi</a>
           <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
         </div>
 
@@ -54,16 +58,22 @@
         </div> -->
       </nav>
 
-      <!-- CTA Login -->
-      <button
-        type="button"
-        id="navLoginBtn"
-        class="block px-4 py-2 bg-gradient-to-r from-accent1 to-accent2 rounded-full text-gray-500"
-        onclick="toggleLoginPopup()"
-      >
-        Masuk
-        <!-- <a href="/profile"><img src="assets/user.svg" /></a> -->
-      </button>
+      <!-- Logged in state: profile and notification -->
+      <div class="flex gap-2 items-center" id="navProfileBtn">
+        <a href="/pages/profile.html">
+          <button class="flex p-1 pl-2 rounded-full items-center gap-2">
+            <p class="font-nunito font-medium">Nama Pengguna</p>
+            <img
+              src="/assets/user.svg"
+              alt="profile"
+              class="size-8 p-1 rounded-full bg-black"
+            />
+          </button>
+        </a>
+        <button class="h-full p-2 rounded-full">
+          <img src="/assets/bell.svg" alt="notification" />
+        </button>
+      </div>
     </header>
     <script src="../js/script.js"></script>
   </body>

@@ -1,3 +1,14 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
 
 h1, h2, h3, h4, h5, h6 {
     user-select: none;
@@ -5,4 +16,16 @@ h1, h2, h3, h4, h5, h6 {
 
 button:hover {
     cursor: pointer;
+    opacity: 80%;
+    transition-duration: 200ms;
+}
+
+button:active {
+    scale: 95%;
+    transition-duration: 200ms;
+}
+
+.img-sponsor:hover {
+    scale: 110%;
+    transition-duration: 400ms;
 }
