@@ -128,9 +128,36 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // manipulate home page content
-// const landingPage = ; 
-// const homePage = ; 
+// const landingPage = ;
+// const homePage = ;
 // if (isLoggedIn == true) {
 
 // }
 
+// JOURNAL PAGE LOGIC
+
+// entry details popup
+function openReadPopup(title, date, content) {
+  document.getElementById("readTitle").innerText = title;
+  document.getElementById("readDate").innerText = date;
+  document.getElementById("readContent").innerText = content;
+
+  document.getElementById("readPopup").classList.replace("hidden", "flex");
+  document.body.style.overflow = "hidden"; // disable scroll background
+}
+
+function closeReadPopup() {
+  document.getElementById("readPopup").classList.replace("flex", "hidden");
+  document.body.style.overflow = "";
+}
+
+// new entry popup
+function openWritePopup() {
+  document.getElementById("writePopup").classList.replace("hidden", "flex");
+  document.body.style.overflow = "hidden";
+}
+
+function closeWritePopup() {
+  document.getElementById("writePopup").classList.replace("flex", "hidden");
+  document.body.style.overflow = "";
+}
