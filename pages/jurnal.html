@@ -9,23 +9,78 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
       @theme {
-        --font-sans: "Lato", sans-serif;
+        --font-quicksand: "Quicksand", sans-serif;
+        --font-nunito: "Nunito", sans-serif;
+
+        --font-sans: var(--font-quicksand);
 
         --color-accent1: #a7c7e7;
         --color-accent2: #98fb98;
       }
     </style>
 
-    <!-- fonts -->
+    <link rel="stylesheet" href="../global.css" />
+
+    <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-40 flex w-full px-24 py-6 justify-between items-center font-nunito bg-transparent backdrop-blur-md shadow-sm"
+    >
+      <a href="">
+        <img
+          src="../assets/logo.svg"
+          alt="healingin logo"
+          class="block h-12 p-1"
+        />
+      </a>
 
-    <script src="js/script.js"></script>
+      <!-- Nav links -->
+      <nav
+        class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500"
+      >
+        <div class="flex w-full gap-8">
+          <a id="homeNav" href="/">Beranda</a>
+          <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
+          <a id="journalNav" href="/pages/jurnal.html">Jurnal</a>
+          <a id="quizNav" href="/pages/refleksi.html">Refleksi</a>
+          <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
+        </div>
+
+        <a
+          id="chatbotBtn"
+          href="/pages/chatbot.html"
+          class="block w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        >
+          <img src="../assets/chatbot.svg" alt="chatbot" class="block size-7" />
+        </a>
+      </nav>
+
+      <!-- Logged in state: profile and notification -->
+      <div class="flex gap-2 items-center" id="navProfileBtn">
+        <a href="">
+          <button class="flex p-1 pl-2 rounded-full items-center gap-2">
+            <p class="font-nunito font-medium">Nama Pengguna</p>
+            <img
+              src="/assets/user.svg"
+              alt="profile"
+              class="size-8 p-1 rounded-full bg-accent1"
+            />
+          </button>
+        </a>
+        <button class="h-full p-2 rounded-full">
+          <img src="/assets/bell.svg" alt="notification" />
+        </button>
+      </div>
+    </header>
+
+    <script src="../js/script.js"></script>
   </body>
 </html>

@@ -19,6 +19,8 @@
       }
     </style>
 
+    <link rel="stylesheet" href="../global.css" />
+
     <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,7 +28,9 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="sticky top-0 flex w-full px-24 py-6 justify-between items-center font-nunito bg-transparent backdrop-blur-[3px] shadow-sm">
+    <header
+      class="sticky top-0 z-40 flex w-full px-24 py-6 justify-between items-center font-nunito bg-transparent backdrop-blur-md shadow-sm"
+    >
       <a href="">
         <img src="../assets/logo.svg" alt="healingin logo" class="block h-12 p-1" />
       </a>
@@ -34,26 +38,32 @@
       <!-- Nav links -->
       <nav class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500">
         <div class="flex w-full gap-8">
-          <a id="homeNav" href="/" class="hover:underline">Beranda</a>
-          <a id="communityNav" href="/pages/komunitas.html" class="hover:underline">Komunitas</a>
-          <a id="quizNav" href="/pages/refleksi.html" class="hover:underline">Refleksi</a>
-          <a id="consultNav" href="/pages/konsultasi.html" class="hover:underline">Konseling</a>
-          <a id="journalNav" href="/pages/jurnal.html" class="hover:underline">Jurnal</a>
+          <a id="homeNav" href="/">Beranda</a>
+          <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
+          <a id="journalNav" href="/pages/jurnal.html">Jurnal</a>
+          <a id="quizNav" href="/pages/refleksi.html">Refleksi</a>
+          <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
         </div>
 
-        <!-- <div
-          class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        <a
+          id="chatbotBtn"
+          href="/pages/chatbot.html"
+          class="block w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
         >
-          <img src="assets/chatbot.svg" alt="chatbot" class="block size-7" />
-        </div> -->
+          <img src="../assets/chatbot.svg" alt="chatbot" class="block size-7" />
+        </a>
       </nav>
 
       <!-- Logged in state: profile and notification -->
       <div class="flex gap-2 items-center" id="navProfileBtn">
-        <a href="/pages/profile.html">
+        <a href="">
           <button class="flex p-1 pl-2 rounded-full items-center gap-2">
             <p class="font-nunito font-medium">Nama Pengguna</p>
-            <img src="/assets/user.svg" alt="profile" class="size-8 p-1 rounded-full bg-black" />
+            <img
+              src="/assets/user.svg"
+              alt="profile"
+              class="size-8 p-1 rounded-full bg-accent1"
+            />
           </button>
         </a>
         <button class="h-full p-2 rounded-full">

@@ -9,15 +9,18 @@ function toggleLoginStatus() {
   const devBtn = document.getElementById("devLoginBtn");
   const navLoginBtn = document.getElementById("navLoginBtn");
   const navProfileBtn = document.getElementById("navProfileBtn");
+  const chatbotBtn = document.getElementById("chatbotBtn");
 
   if (!isLoggedIn) {
     devBtn.innerText = "Masuk";
     navLoginBtn.classList.replace("hidden", "block");
     navProfileBtn.classList.replace("flex", "hidden");
+    chatbotBtn.classList.replace("block", "hidden");
   } else {
     devBtn.innerText = "Keluar";
     navLoginBtn.classList.replace("block", "hidden");
     navProfileBtn.classList.replace("hidden", "flex");
+    chatbotBtn.classList.replace("hidden", "block");
   }
 }
 

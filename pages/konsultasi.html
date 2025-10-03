@@ -19,6 +19,8 @@
       }
     </style>
 
+    <link rel="stylesheet" href="../global.css" />
+
     <!-- fonts: Quicksand, Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,34 +45,26 @@
       <nav
         class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500"
       >
-        <!-- <div class="flex w-full gap-8"> -->
+        <div class="flex w-full gap-8">
         <a id="homeNav" href="/" class="hover:underline">Beranda</a>
         <a id="communityNav" href="/pages/komunitas.html" class="hover:underline">Komunitas</a>
+        <a id="journalNav" href="/pages/jurnal.html" class="hover:underline">Jurnal</a>
         <a id="quizNav" href="/pages/refleksi.html" class="hover:underline">Refleksi</a>
         <a id="consultNav" href="/pages/konsultasi.html" class="text-black hover:underline">Konseling</a>
-        <a id="journalNav" href="/pages/jurnal.html" class="hover:underline">Jurnal</a>
-        <!-- </div> -->
+        </div>
 
-        <!-- <div
-          class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        <a
+          id="chatbotBtn"
+          href="/pages/chatbot.html"
+          class="block w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
         >
-          <img src="assets/chatbot.svg" alt="chatbot" class="block size-7" />
-        </div> -->
+          <img src="../assets/chatbot.svg" alt="chatbot" class="block size-7" />
+        </a>
       </nav>
 
-      <!-- Unlogged state: CTA Login -->
-      <button
-        type="button"
-        id="navLoginBtn"
-        class="block px-4 py-2 bg-accent1 rounded-full"
-        onclick="toggleLoginPopup()"
-      >
-        <p class="text-black">Masuk</p>
-      </button>
-
       <!-- Logged in state: profile and notification -->
-      <div class="hidden gap-2 items-center" id="navProfileBtn">
-        <a href="/pages/profile.html">
+      <div class="flex gap-2 items-center" id="navProfileBtn">
+        <a href="">
           <button class="flex p-1 pl-2 rounded-full items-center gap-2">
             <p class="font-nunito font-medium">Nama Pengguna</p>
             <img
