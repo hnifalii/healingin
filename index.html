@@ -29,7 +29,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-white font-sans">
+  <body class="relative bg-white font-sans">
     <!-- dev button for login toggle (preview purposes) -->
     <button
       id="devLoginBtn"
@@ -244,20 +244,21 @@
       <nav
         class="flex w-max px-2 py-1 gap-8 items-center text-base text-gray-500"
       >
-        <!-- <div class="flex w-full gap-8"> -->
-        <a id="homeNav" href="/">Beranda</a>
-        <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
-        <a id="journalNav" href="/pages/jurnal.html">Jurnal</a>
-        <a id="quizNav" href="/pages/refleksi.html">Refleksi</a>
-        <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
-        <a id="journalNav" href="/pages/jurnal.html" class="hover:underline">Jurnal</a>
-        <!-- </div> -->
+        <div class="flex w-full gap-8">
+          <a id="homeNav" href="/">Beranda</a>
+          <a id="communityNav" href="/pages/komunitas.html">Komunitas</a>
+          <a id="journalNav" href="/pages/jurnal.html">Jurnal</a>
+          <a id="quizNav" href="/pages/refleksi.html">Refleksi</a>
+          <a id="consultNav" href="/pages/konsultasi.html">Konseling</a>
+        </div>
 
-        <!-- <div
-          class="w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
+        <a
+          id="chatbotBtn"
+          href="/pages/chatbot.html"
+          class="hidden w-full p-2 aspect-square rounded-full bg-gradient-to-b from-accent1 to-accent2"
         >
           <img src="assets/chatbot.svg" alt="chatbot" class="block size-7" />
-        </div> -->
+        </a>
       </nav>
 
       <!-- Unlogged state: CTA Login -->
@@ -272,7 +273,7 @@
 
       <!-- Logged in state: profile and notification -->
       <div class="hidden gap-2 items-center" id="navProfileBtn">
-        <a href="/pages/profile.html">
+        <a href="">
           <button class="flex p-1 pl-2 rounded-full items-center gap-2">
             <p class="font-nunito font-medium">Nama Pengguna</p>
             <img
@@ -318,9 +319,9 @@
                 class="flex p-3 pr-5 gap-2 items-center font-semibold border-2 border-accent2 rounded-full"
               >
                 <img
-                  src="/assets/logo.svg"
+                  src="/assets/arrow-down.svg"
                   alt=""
-                  class="size-6 bg-accent2 rounded-full"
+                  class="size-6 p-0.5 bg-accent2 rounded-full"
                 />
                 <p>Pelajari lebih lanjut</p>
               </button>
@@ -356,28 +357,27 @@
         </div>
 
         <!-- Hero img -->
-        <div class="z-20 flex w-1/2 justify-center items-center hover:scale-105 duration-400">
+        <div
+          class="z-20 flex w-1/2 justify-center items-center hover:scale-105 duration-400"
+        >
           <img src="/assets/hero-img.png" alt="" />
         </div>
       </div>
 
-      <!-- Sponsor section -->
-      <div id="sponsor" class="flex w-full px-48 justify-between">
-        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
-        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
-        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
-        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
-        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
-      </div>
-
-      <!-- cerita section -->
-      <div id="cerita" class="flex flex-col px-48 py-24 text-center">
-        <h1 class="text-4xl font-semibold">Setiap cerita punya makna, <br>jangan takut untuk mengungkapkannya</h1>
-        <p class="mb-5 mt-2">
+      <!-- Cerita section -->
+      <div id="cerita" class="flex flex-col w-full px-48 py-24 text-center">
+        <h1 class="text-4xl font-semibold">
+          Setiap cerita punya makna, <br />jangan takut untuk mengungkapkannya
+        </h1>
+        <p class="mb-5 mt-4 font-nunito">
           Tak ada cerita yang terlalu kecil untuk didengar
         </p>
         <div class="w-full pt-8">
-          <img src="assets/cerita-img.png" alt="cerita" class="hover:scale-105 duration-400">
+          <img
+            src="assets/cerita-img.png"
+            alt="cerita"
+            class="hover:scale-105 duration-400"
+          />
         </div>
         <!-- <div class="flex flex-row justify-between gap-10">
           <div class="flex flex-col gap-3 w-fit p-6 bg-gray-100 rounded-xl">
@@ -416,6 +416,275 @@
             </div>
           </div>
         </div> -->
+      </div>
+
+      <!-- Komunitas section -->
+      <div
+        id="komunitas"
+        class="flex flex-col w-full px-48 py-24 text-center overflow-x-hidden"
+      >
+        <!-- Heading -->
+        <h1 class="text-4xl font-semibold">
+          Dukungan kecil bisa jadi cahaya besar <br />bagi yang sedang berjuang
+        </h1>
+        <p class="mb-5 mt-4 font-nunito">
+          Kamu tidak sendiri. Bersama, kita bisa menjadi lebih kuat
+        </p>
+
+        <!-- Container title -->
+        <div class="flex flex-row w-full mt-6 justify-between font-nunito">
+          <h4 class="text-xl font-semibold">Postingan terbaru</h4>
+          <a href="" class="text-gray-500 hover:underline"
+            >Lihat selengkapnya...</a
+          >
+        </div>
+
+        <!-- Card container -->
+        <div
+          class="overflow-x-auto scroll-smooth snap-x snap-mandatory after:bg-gradient-to-l"
+        >
+          <div class="flex w-max py-4 pr-60 gap-8">
+            <!-- Item card -->
+            <div
+              class="flex flex-col max-w-80 p-4 rounded-lg shadow-sm font-nunito snap-center"
+            >
+              <!-- Info section -->
+              <div class="flex gap-2 items-center">
+                <img
+                  src="/assets/drtirta.jpg"
+                  alt="profile picture"
+                  class="size-10 rounded-full"
+                />
+                <div class="flex flex-col w-full text-start">
+                  <h4>N****a A***a</h4>
+                  <h6 class="text-sm text-gray-500">6 jam lalu</h6>
+                </div>
+                <img src="/assets/mynaui_dots-solid.svg" alt="" />
+              </div>
+              <!-- Content -->
+              <div class="flex flex-col w-full pt-4 gap-2 text-start">
+                <p class="text-sm line-clamp-2">
+                  Saya baru ke psikolog tadi siang
+                </p>
+                <img
+                  src="/assets/post-img.png"
+                  alt="post image"
+                  class="w-full aspect-[4/3] object-cover object-center overflow-hidden rounded-lg bg-slate-100"
+                />
+              </div>
+
+              <!-- Button group -->
+              <div class="flex pt-2 gap-4">
+                <button type="button">
+                  <img src="/assets/mail-reaction.svg" alt="" class="size-6" />
+                </button>
+                <button type="button">
+                  <img src="/assets/comment.svg" alt="" class="size-6" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Item card -->
+            <div
+              class="flex flex-col max-w-80 p-4 rounded-lg shadow-sm font-nunito snap-center"
+            >
+              <!-- Info section -->
+              <div class="flex gap-2 items-center">
+                <img
+                  src="/assets/drtirta.jpg"
+                  alt="profile picture"
+                  class="size-10 rounded-full"
+                />
+                <div class="flex flex-col w-full text-start">
+                  <h4>N****a A***a</h4>
+                  <h6 class="text-sm text-gray-500">6 jam lalu</h6>
+                </div>
+                <img src="/assets/mynaui_dots-solid.svg" alt="" />
+              </div>
+              <!-- Content -->
+              <div class="flex flex-col w-full pt-4 gap-2 text-start">
+                <p class="text-sm line-clamp-2">
+                  Saya baru ke psikolog tadi siang
+                </p>
+                <img
+                  src="/assets/post-img.png"
+                  alt="post image"
+                  class="w-full aspect-[4/3] object-cover object-center overflow-hidden rounded-lg bg-slate-100"
+                />
+              </div>
+
+              <!-- Button group -->
+              <div class="flex pt-2 gap-4">
+                <button type="button">
+                  <img src="/assets/mail-reaction.svg" alt="" class="size-6" />
+                </button>
+                <button type="button">
+                  <img src="/assets/comment.svg" alt="" class="size-6" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Item card -->
+            <div
+              class="flex flex-col max-w-80 p-4 rounded-lg shadow-sm font-nunito snap-center"
+            >
+              <!-- Info section -->
+              <div class="flex gap-2 items-center">
+                <img
+                  src="/assets/drtirta.jpg"
+                  alt="profile picture"
+                  class="size-10 rounded-full"
+                />
+                <div class="flex flex-col w-full text-start">
+                  <h4>N****a A***a</h4>
+                  <h6 class="text-sm text-gray-500">6 jam lalu</h6>
+                </div>
+                <img src="/assets/mynaui_dots-solid.svg" alt="" />
+              </div>
+              <!-- Content -->
+              <div class="flex flex-col w-full pt-4 gap-2 text-start">
+                <p class="text-sm line-clamp-2">
+                  Saya baru ke psikolog tadi siang
+                </p>
+                <img
+                  src="/assets/post-img.png"
+                  alt="post image"
+                  class="w-full aspect-[4/3] object-cover object-center overflow-hidden rounded-lg bg-slate-100"
+                />
+              </div>
+
+              <!-- Button group -->
+              <div class="flex pt-2 gap-4">
+                <button type="button">
+                  <img src="/assets/mail-reaction.svg" alt="" class="size-6" />
+                </button>
+                <button type="button">
+                  <img src="/assets/comment.svg" alt="" class="size-6" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Item card -->
+            <div
+              class="flex flex-col max-w-80 p-4 rounded-lg shadow-sm font-nunito snap-center"
+            >
+              <!-- Info section -->
+              <div class="flex gap-2 items-center">
+                <img
+                  src="/assets/drtirta.jpg"
+                  alt="profile picture"
+                  class="size-10 rounded-full"
+                />
+                <div class="flex flex-col w-full text-start">
+                  <h4>N****a A***a</h4>
+                  <h6 class="text-sm text-gray-500">6 jam lalu</h6>
+                </div>
+                <img src="/assets/mynaui_dots-solid.svg" alt="" />
+              </div>
+              <!-- Content -->
+              <div class="flex flex-col w-full pt-4 gap-2 text-start">
+                <p class="text-sm line-clamp-2">
+                  Saya baru ke psikolog tadi siang
+                </p>
+                <img
+                  src="/assets/post-img.png"
+                  alt="post image"
+                  class="w-full aspect-[4/3] object-cover object-center overflow-hidden rounded-lg bg-slate-100"
+                />
+              </div>
+
+              <!-- Button group -->
+              <div class="flex pt-2 gap-4">
+                <button type="button">
+                  <img src="/assets/mail-reaction.svg" alt="" class="size-6" />
+                </button>
+                <button type="button">
+                  <img src="/assets/comment.svg" alt="" class="size-6" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Item card -->
+            <div
+              class="flex flex-col max-w-80 p-4 rounded-lg shadow-sm font-nunito snap-center"
+            >
+              <!-- Info section -->
+              <div class="flex gap-2 items-center">
+                <img
+                  src="/assets/drtirta.jpg"
+                  alt="profile picture"
+                  class="size-10 rounded-full"
+                />
+                <div class="flex flex-col w-full text-start">
+                  <h4>N****a A***a</h4>
+                  <h6 class="text-sm text-gray-500">6 jam lalu</h6>
+                </div>
+                <img src="/assets/mynaui_dots-solid.svg" alt="" />
+              </div>
+              <!-- Content -->
+              <div class="flex flex-col w-full pt-4 gap-2 text-start">
+                <p class="text-sm line-clamp-2">
+                  Saya baru ke psikolog tadi siang
+                </p>
+                <img
+                  src="/assets/post-img.png"
+                  alt="post image"
+                  class="w-full aspect-[4/3] object-cover object-center overflow-hidden rounded-lg bg-slate-100"
+                />
+              </div>
+
+              <!-- Button group -->
+              <div class="flex pt-2 gap-4">
+                <button type="button">
+                  <img src="/assets/mail-reaction.svg" alt="" class="size-6" />
+                </button>
+                <button type="button">
+                  <img src="/assets/comment.svg" alt="" class="size-6" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Item card -->
+            <div
+              class="flex flex-col max-w-80 p-4 rounded-lg shadow-sm font-nunito snap-center"
+            >
+              <!-- Info section -->
+              <div class="flex gap-2 items-center">
+                <img
+                  src="/assets/drtirta.jpg"
+                  alt="profile picture"
+                  class="size-10 rounded-full"
+                />
+                <div class="flex flex-col w-full text-start">
+                  <h4>N****a A***a</h4>
+                  <h6 class="text-sm text-gray-500">6 jam lalu</h6>
+                </div>
+                <img src="/assets/mynaui_dots-solid.svg" alt="" />
+              </div>
+              <!-- Content -->
+              <div class="flex flex-col w-full pt-4 gap-2 text-start">
+                <p class="text-sm line-clamp-2">
+                  Saya baru ke psikolog tadi siang
+                </p>
+                <img
+                  src="/assets/post-img.png"
+                  alt="post image"
+                  class="w-full aspect-[4/3] object-cover object-center overflow-hidden rounded-lg bg-slate-100"
+                />
+              </div>
+
+              <!-- Button group -->
+              <div class="flex pt-2 gap-4">
+                <button type="button">
+                  <img src="/assets/mail-reaction.svg" alt="" class="size-6" />
+                </button>
+                <button type="button">
+                  <img src="/assets/comment.svg" alt="" class="size-6" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Konsultasi Section -->
@@ -482,17 +751,19 @@
         </div>
       </div>
 
-      <!-- testimoni section -->
-      <div id="testimoni" class="flex w-full h-fit flex-col px-48 my-20">
-        <h1 class="text-4xl font-semibold">Testimoni</h1>
-        <p class="mt-2">
+      <!-- Testimoni section -->
+      <div id="testimoni" class="flex w-full h-fit flex-col px-48 py-20">
+        <h1 class="text-4xl text-center font-semibold">Testimoni</h1>
+        <p class="mt-2 text-center font-nunito">
           Ini kata orang-orang setelah menggunakan website ini!
         </p>
         <div class="flex flex-col gap-6 mt-6 mx-28">
           <!-- first row -->
           <div class="flex flex-row justify-between gap-8">
             <!-- item -->
-            <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
+            <div
+              class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full bg-white hover:scale-105 duration-300"
+            >
               <img
                 src="/assets/bi_quote.svg"
                 alt="img_quote"
@@ -505,9 +776,9 @@
               </p>
               <div class="flex flex-row gap-4 align-middle">
                 <img
-                  src="/assets/doctor-male.jpg"
+                  src="/assets/user.svg"
                   alt="img_profile"
-                  class="size-11 rounded-full"
+                  class="size-11 rounded-full p-1"
                 />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
@@ -516,7 +787,9 @@
               </div>
             </div>
 
-            <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
+            <div
+              class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full bg-white hover:scale-105 duration-300"
+            >
               <img
                 src="/assets/bi_quote.svg"
                 alt="img_quote"
@@ -529,9 +802,9 @@
               </p>
               <div class="flex flex-row gap-4 align-middle">
                 <img
-                  src="/assets/doctor-male.jpg"
+                  src="/assets/user.svg"
                   alt="img_profile"
-                  class="size-11 rounded-full"
+                  class="size-11 rounded-full p-1"
                 />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
@@ -544,7 +817,9 @@
           <!-- second row -->
           <div class="flex flex-row justify-between gap-8">
             <!-- item -->
-            <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
+            <div
+              class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full bg-white hover:scale-105 duration-300"
+            >
               <img
                 src="/assets/bi_quote.svg"
                 alt="img_quote"
@@ -557,9 +832,9 @@
               </p>
               <div class="flex flex-row gap-4 align-middle">
                 <img
-                  src="/assets/doctor-male.jpg"
+                  src="/assets/user.svg"
                   alt="img_profile"
-                  class="size-11 rounded-full"
+                  class="size-11 rounded-full p-1"
                 />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
@@ -568,7 +843,9 @@
               </div>
             </div>
 
-            <div class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full">
+            <div
+              class="flex flex-col gap-4 p-4 shadow-md rounded-lg w-full bg-white hover:scale-105 duration-300"
+            >
               <img
                 src="/assets/bi_quote.svg"
                 alt="img_quote"
@@ -581,9 +858,9 @@
               </p>
               <div class="flex flex-row gap-4 align-middle">
                 <img
-                  src="/assets/doctor-male.jpg"
+                  src="/assets/user.svg"
                   alt="img_profile"
-                  class="size-11 rounded-full"
+                  class="size-11 rounded-full p-1"
                 />
                 <div class="flex flex-col text-[14px]">
                   <h5 class="font-semibold">Hanif Ali</h5>
@@ -595,28 +872,24 @@
         </div>
       </div>
 
+      <!-- Sponsor section -->
+      <div id="sponsor" class="flex w-full px-48 pt-12 pb-80 justify-between">
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+        <img src="/assets/sponsor.png" alt="logo sponsor" class="img-sponsor" />
+      </div>
+
       <!-- Join Us Section -->
-      <div id="join" class="flex w-full h-fit flex-col px-48 my-20">
-        <h1 class="text-4xl font-semibold">Ayo Bergabung Bersama Kami</h1>
-        <div class="flex flex-row justify-between mt-14 text-xl">
-          <div>
-            <p>
-              Bergabunglah bersama kami! Bersama-sama membentuk komunitas yang
-              solid!
-            </p>
-            <img src="/assets/care.png" alt="" />
-          </div>
-          <div class="flex flex-col gap-8">
-            <img src="/assets/together.png" alt="" />
-            <p>Bertemu dengan orang-orang yang akan selalu mendukungmu!</p>
-            <a href="/">
-              <button
-                class="py-3 px-7 text-lg bg-gradient-to-r from-accent1 to-accent2 w-fit rounded-lg hover:opacity-80 transition duration-150"
-              >
-                Bergabung Bersama Kami!
-              </button>
-            </a>
-          </div>
+      <div id="join" class="flex w-full px-48 py-20 mt-80 gap-12 text-white">
+        <img src="https://www.placehold.co/100x100" alt="" class="aspect-[4/3] object-cover object-center max-w-1/2 w-full">
+        <div class="flex flex-col gap-2 justify-center">
+          <h1 class="text-4xl font-semibold">Sudah siap bergabung bersama kami?</h1>
+          <p class="text-lg font-nunito">Ayo bersama-sama membentuk komunitas yang solid!</p>
+          <button type="button" class="w-fit mt-6 px-8 py-2 bg-gradient-to-br from-accent1 to-accent2 text-black rounded-full">
+            Mulai bergabung
+          </button>
         </div>
       </div>
     </main>
@@ -624,10 +897,23 @@
     <!-- <main id="homePage" class="hidden w-full px-48"></main> -->
 
     <!-- footer -->
-    <footer class="flex flex-col gap-20 bg-black px-16 py-14 mt-40">
+    <footer class="flex flex-col gap-20 px-16 py-14">
       <div class="flex flex-row justify-between">
         <div class="flex flex-col gap-4 text-white opacity-70">
-          <img src="/assets/icon.svg" alt="icon" class="w-52" />
+          <img src="/assets/logo.svg" alt="icon" class="size-12" />
+          <div class="flex flex-row gap-7">
+            <a href="/" class="hover:underline">Beranda</a>
+            <a href="/pages/komunitas.html" class="hover:underline"
+              >Komunitas</a
+            >
+            <a href="/pages/jurnal.html" class="hover:underline">Jurnal</a>
+            <a href="/pages/refleksi.html" class="hover:underline">Refleksi</a>
+            <a href="/pages/konsultasi.html" class="hover:underline"
+              >Konseling</a
+            >
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 text-white">
           <div class="flex flex-row gap-7">
             <!-- instagram -->
             <div class="flex flex-row gap-1 hover:underline">
@@ -648,26 +934,20 @@
           <h5>Hotline Darurat:</h5>
           <p>+62 811 3855 472 (LISA Suicide Prevention)</p>
         </div>
-        <div class="flex flex-col gap-10 text-white opacity-70 text-xl">
-          <div class="flex flex-row gap-12">
-            <a href="" class="hover:underline">Beranda</a>
-            <a href="" class="hover:underline">Senandung</a>
-            <a href="" class="hover:underline">Komunitas</a>
-            <a href="" class="hover:underline">Refleksi</a>
-          </div>
-          <div class="flex flex-row gap-12">
-            <a href="" class="hover:underline">Konseling</a>
-            <a href="" class="hover:underline">Kontak</a>
-            <a href="" class="hover:underline">Profil</a>
-          </div>
-        </div>
       </div>
       <div
         class="flex justify-center pt-8 border-t-[0.4px] border-opacity-70 text-white opacity-50"
       >
-        <p>Made with 💖 by Snapper Team</p>
+        <p>Dibuat oleh Team Snapper &copy;2025</p>
       </div>
     </footer>
+
+    <!-- footer bg -->
+    <img
+      src="assets/footer-bg.png"
+      alt=""
+      class="absolute bottom-0 -z-10 w-full"
+    />
 
     <script src="js/script.js"></script>
   </body>
