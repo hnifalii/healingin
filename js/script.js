@@ -34,9 +34,7 @@ const registerPopup = document.getElementById("registerPopup");
 
 function showPopup(popup) {
   // hide all popup if any is opened
-  [loginPopup, registerPopup].forEach((el) =>
-    el.classList.replace("flex", "hidden")
-  );
+  [loginPopup, registerPopup].forEach((el) => el.classList.replace("flex", "hidden"));
 
   // show popup
   popup.classList.replace("hidden", "flex");
@@ -133,6 +131,16 @@ document.addEventListener("DOMContentLoaded", () => {
 // if (isLoggedIn == true) {
 
 // }
+
+// play music logic
+const audioPlayer = document.getElementById("audio-player");
+const trackTitle = document.getElementById("track-title");
+
+function playMusic(src, title) {
+  audioPlayer.src = src;
+  trackTitle.innerText = title;
+  audioPlayer.play();
+}
 
 // JOURNAL PAGE LOGIC
 
